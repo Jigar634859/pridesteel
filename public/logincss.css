@@ -136,6 +136,31 @@ header {
     cursor: pointer;
 }
 
+.forgot-password {
+    display: block;
+    margin: 10px 0;
+    color: rgb(33, 150, 243);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+form{
+    height: 100%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px;
+    margin: 5px 5px 5px 5px;
+    gap : 20px;
+}
+
 @media screen and (max-width: 650px) {
     .container {
         height: 550px;

@@ -12,15 +12,21 @@
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.20.2",
+        "connect-flash": "^0.1.1",
+        "connect-pg-simple": "^9.0.1",
         "date-and-time": "^3.3.0",
         "date-time": "^4.0.0",
         "ejs": "^3.1.9",
-        "express": "^4.18.2",
+        "express": "^4.19.2",
+        "express-session": "^1.18.0",
         "luxon": "^3.4.4",
         "node-schedule": "^2.1.1",
         "nodemailer": "^6.9.14",
         "otp-timer": "^1.1.5",
-        "pg": "^8.11.3",
+        "passport": "^0.7.0",
+        "passport-local": "^1.0.0",
+        "path": "^0.12.7",
+        "pg": "^8.12.0",
         "twilio": "^5.2.0"
     }
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Billing</title>
+    <link rel="stylesheet" href="./cart.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cart-item" data-price="19.99">
+            <img src="https://via.placeholder.com/80" alt="Product 1">
+            <div class="cart-item-details">
+                <h2>Product 1</h2>
+                <p class="price">$19.99</p>
+            </div>
+            <div class="cart-item-quantity">
+                Quantity: <input type="number" value="1" min="1">
+            </div>
+        </div>
+        <div class="cart-item" data-price="29.99">
+            <img src="https://via.placeholder.com/80" alt="Product 2">
+            <div class="cart-item-details">
+                <h2>Product 2</h2>
+                <p class="price">$29.99</p>
+            </div>
+            <div class="cart-item-quantity">
+                Quantity: <input type="number" value="1" min="1">
+            </div>
+        </div>
+        <div class="cart-item" data-price="39.99">
+            <img src="https://via.placeholder.com/80" alt="Product 3">
+            <div class="cart-item-details">
+                <h2>Product 3</h2>
+                <p class="price">$39.99</p>
+            </div>
+            <div class="cart-item-quantity">
+                Quantity: <input type="number" value="1" min="1">
+            </div>
+        </div>
+
+        <div class="total">Total: $89.97</div>
+
+        <div class="billing-info">
+            <h2>Billing Information</h2>
+            <form id="billingForm" action="/submit-billing" method="POST">
+                <input type="text" name="name" placeholder="Full Name" value="<%=user%>">
+                <input type="email" name="email" placeholder="Email" value="<%= email %>">
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="text" name="city" placeholder="City" required>
+                <input type="text" name="state" placeholder="State" required>
+                <input type="text" name="zip" placeholder="Zip Code" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the total amount
+        function updateTotal() {
+            let total = 0;
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartItems.forEach(item => {
+                const price = parseFloat(item.getAttribute('data-price'));
+                const quantity = parseInt(item.querySelector('input').value);
+                total += price * quantity;
+            });
+            document.querySelector('.total').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Add event listeners to quantity inputs
+        document.querySelectorAll('.cart-item input').forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+
+        // Initial call to set the total on page load
+        updateTotal();
+    </script>
+</body>
+</html>

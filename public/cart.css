@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .header .title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header .profile-cart {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .profile-cart a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cart-item {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item img {
+            max-width: 80px;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item-details h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .cart-item-details p {
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .cart-item-details .price {
+            font-size: 16px;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-quantity input {
+            width: 50px;
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .billing-info {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .billing-info h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .billing-info form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .billing-info form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .billing-info form button:hover {
+            background-color: #0056b3;
+        }
+
+        .total {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: right;
+            width: 100%;
+            max-width: 600px;
+        }

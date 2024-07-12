@@ -93,7 +93,7 @@ document.getElementById("otpForm").addEventListener("submit", (event) => {
             alert('Entered wrong OTP.');
             // Handle wrong OTP scenario
         } else {
-            alert('Unexpected response from server.');
+          window.location.href = '/main';
         }
     } else {
         console.error('Unexpected response format:', data);
@@ -105,3 +105,4 @@ document.getElementById("otpForm").addEventListener("submit", (event) => {
     // Handle network errors or unexpected server responses
 });
 });
+window.addEventListener("load", () => inputs[0].focus());

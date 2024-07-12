@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Handle wrong password or email
                 alert('Wrong email or password. Please try again.');
             }
+            else {
+                // Successful response will render the OTP page
+                window.location.href = '/main';
+            }
         })
         .catch(error => {
             console.error('Error:', error);
