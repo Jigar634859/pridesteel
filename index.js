@@ -247,11 +247,16 @@ app.post('/verify-otp', async (req, res) => {
             WHERE otp = $1 AND email = $2
         `;
         await db.query(deleteQuery, [otp, email]);
+        const query = `select user_id, username from users where email=$1`;
         
-        const query=`select user_id,username,email
-        from users where email=$1`;
-        // Store user information in the session
-        const user=await db.query(query,[email]);
+        const result = await db.query(query, [email]);
+    
+        // Check if any rows are returned
+        if (result.rows.length === 0) {
+            throw new Error('User not found');
+        }
+        const user=result.rows[0];
+        
         req.session.user = {
           
           
@@ -259,7 +264,8 @@ app.post('/verify-otp', async (req, res) => {
           username:user.username
           
         };
-
+        
+        console.log(req.session.user.username);
         res.render('main.ejs',{username:req.session.user.username});
     } catch (error) {
         console.error('Error verifying OTP or storing user info:', error);
