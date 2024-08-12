@@ -26,7 +26,7 @@ const db = new pg.Client({
   host: "localhost",
   database: "pride",
   password: process.env.dbpass,
-  port: 5432,
+  port: process.env.portpg,
 });
 db.connect();
 const pgSessionInstance = pgSession(session);
