@@ -13,9 +13,11 @@ import { Strategy as LocalStrategy } from "passport-local";
 import flash from "connect-flash";
 import date from 'date-and-time';
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
-const port = 3000;
+const port = process.env.port;
 const _dirname = dirname(fileURLToPath(import.meta.url));
 
 
@@ -23,7 +25,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "pride",
-  password: "jigar@2004",
+  password: process.env.dbpass,
   port: 5432,
 });
 db.connect();
@@ -37,8 +39,8 @@ app.use(express.static(path.join(_dirname,"public")));
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: "jyanijigar20@gmail.com",
-        pass: "wcjm ooqa acil hgxo"
+        user: process.env.email,
+        pass: process.env.pass
     }
 });
 
@@ -170,7 +172,7 @@ app.post('/send-otp', async (req, res) => {
         const mailOptions = {
             from: "jyanijigar20@gmail.com",
             to: email,
-            subject: 'Verification Code',
+            subect: 'Verification Code',
             text: `Your OTP for verification is: ${otp}`
         };
 
@@ -361,7 +363,7 @@ app.get('/cart',async(req,res) => {
     const id=req.session.user.id;
     const query=`select email from users
     where user_id=$1`;
-    const email= await db.query(query,[id]);
+    const email= await db.query(query,[req.session.user.user_id]);
     res.render('cart.ejs',{ email:email.rows[0].email,
         user:req.session.user.username
     }
